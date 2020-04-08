@@ -1,0 +1,49 @@
+<%- include ("../partials/header.ejs") %>
+<%- include ("../partials/homenavbar.ejs") %>
+
+<body>
+    <div class="container">
+        <h2 class="mt-5">Criação de um novo plano</h2>
+        <hr>
+        <form action="/plans/store" method="POST">
+            <div class="card">
+
+                <div class="card-header">
+                    <h4>Novo plano</h4>
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <input type="text" name="title" id="title" placeholder="Título do plano" class="form-control">
+                        <% if(title_msg.length > 0) { %>
+                            <div class="alert alert-danger"><%= title_msg %></div>
+                        <% } %>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="list" id="list" placeholder="Nº de listas" class="form-control">
+                        <% if(list_msg.length > 0) { %>
+                            <div class="alert alert-danger"><%= list_msg %></div>
+                        <% } %>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="client" id="client" placeholder="Nº de clientes" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="value" id="value" placeholder="Custo" class="form-control">
+                    </div>
+                    <hr>
+                    <div class="form-check">
+                        <input type="checkbox" name="imports" id="imports" class="form-check-input">
+                        <label class="form-check-label" for="imports">Permite importação de lista</label>
+                    </div>                    
+                </div>
+
+                <div class="card-footer">
+                    <button class="btn btn-success btn-block">Cadastrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+<%- include ("../partials/footer.ejs") %>
